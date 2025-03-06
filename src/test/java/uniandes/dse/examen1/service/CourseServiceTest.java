@@ -1,6 +1,7 @@
 package uniandes.dse.examen1.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -30,18 +31,20 @@ public class CourseServiceTest {
 
     private PodamFactory factory = new PodamFactoryImpl();
 
+    private CourseEntity course;
+
     @BeforeEach
     void setUp() {
-
+        
     }
 
     @Test
     void testCreateRecordMissingCourse() {
-        // TODO
+        
     }
 
     @Test
     void testCreateRepeatedCourse() {
-        // TODO
+        
     }
 }

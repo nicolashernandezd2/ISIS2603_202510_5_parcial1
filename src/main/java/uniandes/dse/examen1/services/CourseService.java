@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import uniandes.dse.examen1.entities.CourseEntity;
 import uniandes.dse.examen1.exceptions.RepeatedCourseException;
+import uniandes.dse.examen1.exceptions.RepeatedStudentException;
 import uniandes.dse.examen1.repositories.CourseRepository;
 
 @Slf4j
@@ -18,6 +19,12 @@ public class CourseService {
     CourseRepository courseRepository;
 
     public CourseEntity createCourse(CourseEntity newCourse) throws RepeatedCourseException {
-        // TODO
+        log.info("Inicia proceso de creación del curso");
+        
+        if (courseRepository.findByCourseCode(newCourse.getCourseCode()) != null)
+                throw new RepeatedCourseException(newCourse.getCourseCode());
+        
+        log.info("Termina proceso de creación del curso");
+        return courseRepository.save(newCourse);
     }
 }
