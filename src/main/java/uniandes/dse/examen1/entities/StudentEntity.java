@@ -38,7 +38,6 @@ public class StudentEntity {
      * student in the course.
      */
     // TODO
-    @PodamExclude
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<RecordEntity> registros = new ArrayList<>();
 
